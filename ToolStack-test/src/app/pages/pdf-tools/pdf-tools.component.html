@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <span>ToolStack - PDF Merge</span>
+</mat-toolbar>
+
+<div class="container">
+  <input type="file" (change)="onFilesSelected($event)" multiple accept=".pdf" hidden #fileInput />
+  <button mat-raised-button color="primary" (click)="fileInput.click()">
+    <mat-icon>upload</mat-icon> Carica PDF
+  </button>
+
+  <div class="pdf-list">
+    <div *ngFor="let preview of previews; let i = index" class="pdf-card" dnd-droppable [dndDropzone]="''"
+      (dndDrop)="onDrop($event, i)">
+      <div style="margin: 30px;" class="draggable" [dndDraggable]="true" [dndDraggable]="{ index: i }"
+        [dndDropzone]="''" dnd-effect-allowed="move">
+        <img [src]="preview" class="thumbnail" />
+        <p>{{ files[i]?.name }}</p>
+      </div>
+      <button mat-icon-button color="primary" (click)="openPreviewAndSelectPages(files[i], i)">
+        <mat-icon>visibility</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="removeFile(i)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+
+  <button mat-raised-button color="accent" [disabled]="files.length < 2" (click)="merge()">
+    <mat-icon>merge</mat-icon> Unisci PDF
+  </button>
+</div>

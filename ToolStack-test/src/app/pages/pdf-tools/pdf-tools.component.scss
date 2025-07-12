@@ -1,0 +1,51 @@
+.pdf-drop-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pdf-preview {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: center;
+  width: 150px;
+  cursor: move;
+}
+
+.pdf-preview img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.pdf-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.pdf-card {
+  width: 160px;
+  position: relative;
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}

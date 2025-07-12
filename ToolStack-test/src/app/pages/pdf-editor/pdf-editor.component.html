@@ -1,0 +1,36 @@
+<div class="editor-container">
+<mat-toolbar color="primary" class="toolbar">
+  <button mat-icon-button color="accent" (click)="pdfInput.click()" matTooltip="📄 Carica PDF">
+    📄
+  </button>
+  <input #pdfInput type="file" accept=".pdf" hidden (change)="onFilesSelected($event)" />
+
+  <button mat-icon-button color="accent" (click)="addText()" matTooltip="✏️ Aggiungi testo">✏️</button>
+
+  <mat-form-field appearance="fill">
+    <mat-select [(ngModel)]="selectedFont" (ngModelChange)="onFontChange()" placeholder="Font">
+      <mat-option *ngFor="let font of fonts" [value]="font">{{ font }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <input matInput type="number" [(ngModel)]="fontSize" (ngModelChange)="onFontChange()" placeholder="Dim." />
+  </mat-form-field>
+
+  <button mat-icon-button color="accent" (click)="imgInput.click()" matTooltip="🖼️ Aggiungi immagine">🖼️</button>
+  <input #imgInput type="file" accept="image/*" hidden (change)="addImage($event)" />
+
+  <button mat-icon-button color="accent" (click)="enableDraw()" matTooltip="✍️ Disegna">✍️</button>
+  <button mat-icon-button color="warn" (click)="disableDraw()" matTooltip="⛔ Stop Disegno">⛔</button>
+
+  <button mat-icon-button color="warn" (click)="deleteSelectedObject()" matTooltip="🧽 Gomma">🧽</button>
+
+  <!-- <button mat-icon-button color="primary" (click)="undo()" matTooltip="↩️ Annulla">↩️</button>
+  <button mat-icon-button color="primary" (click)="redo()" matTooltip="↪️ Ripeti">↪️</button> -->
+
+  <button mat-raised-button color="accent" (click)="exportPDF()">💾</button>
+</mat-toolbar>
+
+  <!-- 🧾 Area PDF -->
+  <div #canvasContainer class="pdf-container"></div>
+</div>
