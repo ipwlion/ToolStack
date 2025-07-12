@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'carica-orario' title`, () => {
+  it(`should have the 'ToolStack' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('carica-orario');
+    expect(app.title).toEqual('ToolStack');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, carica-orario');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ToolStack');
   });
 });

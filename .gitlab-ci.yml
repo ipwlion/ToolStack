@@ -1,0 +1,16 @@
+image: node:20
+
+pages:
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - npm install -g @angular/cli
+    - npm install
+    - ng build --configuration production --base-href "/$CI_PROJECT_NAME/"
+    - mv dist/* public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main  # o il branch che usi (es. 'master')
